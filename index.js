@@ -28,13 +28,25 @@ app.get('/Ver', (req, res) => {
     })
   })
 
-  app.post('Insertar', (req, res) => {
+  app.get('/Alumnos', (req, res) => {
     const db = fire.firestore();
-    
-    db.collection('/Pruebas2').add({
-
+   
+      var wholeData = []
+      db.collection('/Pruebas2').orderBy('NumCtrl', 'asc').get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+        
+          wholeData.push(doc.data())
+        });
+        console.log(wholeData)
+        res.send(wholeData)
+      })
+      .catch(error => {
+        console.log('Error!', error);
     })
   })
+
+
 
   app.listen(PORT, () => {
     console.log(`Servidor en funcionamiento en el puerto ${PORT}`)
