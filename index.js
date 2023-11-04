@@ -46,7 +46,7 @@ app.get('/Ver', (req, res) => {
     })
   })
 
-  app.post('Insertar', (req, res) => {
+  app.post('/Insertar', (req, res) => {
     const db = fire.firestore();
     
     db.collection('/Pruebas2').add({
