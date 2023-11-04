@@ -28,6 +28,14 @@ app.get('/Ver', (req, res) => {
     })
   })
 
+  app.post('Insertar', (req, res) => {
+    const db = fire.firestore();
+    
+    db.collection('/Pruebas2').add({
+
+    })
+  })
+
   app.listen(PORT, () => {
     console.log(`Servidor en funcionamiento en el puerto ${PORT}`)
   })
