@@ -46,7 +46,28 @@ app.get('/Ver', (req, res) => {
     })
   })
 
+  app.post('Insertar', (req, res) => {
+    const db = fire.firestore();
+    
+    db.collection('/Pruebas2').add({
+      Numero_de_Control: req.body.NumCtrl,
+      Nombre: req.body.Nombre,
+      Carrera: req.body.Carrera,
+      Semestre: req.body.Semestre,
+      Motivo:  req.body.Motivo,
+      Fecha: new Date().toJSON()
+    });
 
+    res.send({
+      Numero_de_Control: req.body.NumCtrl,
+      Nombre: req.body.Nombre,
+      Carrera: req.body.Carrera,
+      Semestre: req.body.Semestre,
+      Motivo:  req.body.Motivo,
+      Fecha: new Date().toJSON(),
+      status: 'Valores Insertados'
+    })
+  })
 
   app.listen(PORT, () => {
     console.log(`Servidor en funcionamiento en el puerto ${PORT}`)
