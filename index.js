@@ -51,12 +51,13 @@ app.get('/Ver', (req, res) => {
     
     db.collection('/Pruebas2').add({
 
-      Numero_de_Control : req.body.NumCtrl,
+      Numero_de_Control : req.body.Numero_de_Control,
       Nombre : req.body.Nombre,
       Carrera : req.body.Carrera,
       Semestre : req.body.Semestre,
       Motivo :  req.body.Motivo,
       Fecha : new Date().toJSON()
+
     });
 
     res.send({
