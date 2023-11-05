@@ -46,7 +46,7 @@ app.get('/Ver', (req, res) => {
     })
   })
 
-  app.post('/Insertar', (req, res) => {
+  app.post('/insertar', (req, res) => {
     const db = fire.firestore();
     
     db.collection('/Pruebas2').add({
@@ -56,6 +56,7 @@ app.get('/Ver', (req, res) => {
       Semestre: req.body.Semestre,
       Motivo:  req.body.Motivo,
       Fecha: new Date().toJSON()
+
     });
 
     res.send({
