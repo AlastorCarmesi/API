@@ -14,7 +14,7 @@ app.get('/Ver', (req, res) => {
     const db = fire.firestore();
    
       var wholeData = []
-      db.collection('/Pruebas').orderBy('Fecha', 'asc').get()
+      db.collection('/Ingresos').orderBy('Fecha', 'asc').get()
       .then(snapshot => {
         snapshot.forEach(doc => {
         
@@ -32,7 +32,7 @@ app.get('/Ver', (req, res) => {
     const db = fire.firestore();
    
       var wholeData = []
-      db.collection('/Pruebas2').orderBy('NumCtrl', 'asc').get()
+      db.collection('/Alumnado').orderBy('NumCtrl', 'asc').get()
       .then(snapshot => {
         snapshot.forEach(doc => {
         
@@ -49,7 +49,7 @@ app.get('/Ver', (req, res) => {
   app.post('/insertar', (req, res) => {
     const db = fire.firestore();
     
-    db.collection('/Pruebas2').add({
+    db.collection('/Ingresos').add({
 
       Numero_de_Control : req.body.Numero_de_Control,
       Nombre : req.body.Nombre,
