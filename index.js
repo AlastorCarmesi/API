@@ -72,5 +72,5 @@ app.get('/Ver', (req, res) => {
   })
 
   app.listen(PORT, () => {
-    console.log(`Servidor en funcionamiento en el puerto ${PORT}`)
+    console.log(`API ON...`)
   })
