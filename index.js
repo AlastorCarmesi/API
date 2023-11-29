@@ -4,7 +4,7 @@ var app = express();
 var fire = require('./fire')
 var cors = require('cors');
 var bodyParser = require('body-parser');
-const { error } = require('console');
+const { error, Console } = require('console');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -70,6 +70,24 @@ app.get('/Ver', (req, res) => {
       status: 'Valores insertados!'
     })
   })
+
+  app.delete('/Eliminar', (req, res) => {
+    const db = fire.firestore();
+
+    db.collection('/Ingresos').get()
+    .then(snapshot => {
+      const deletePromises = snapshot.docs.map(doc => doc.ref.delete());
+      return Promise.all(deletePromises);
+    })
+    .then(() => {
+      console.log('Los datos de ingresos han sidos eliminados...');
+      res.send({status: 'Datos eliminados'});
+    })
+    .catch(error => {
+      console.error('Error al eliminar', error);
+      res.status(500).send({error: 'Error al eliminar...'})
+    });
+  });
 
   app.listen(PORT, () => {
     console.log(`API ON...`)
