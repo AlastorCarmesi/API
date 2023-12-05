@@ -67,7 +67,8 @@ app.get('/Ver', (req, res) => {
       Carrera : req.body.Carrera,
       Semestre : req.body.Semestre,
       Motivo :  req.body.Motivo,
-      Fecha : new Date().toJSON(),
+      Fecha : req.body.Fecha,
+      Hora : req.body.Hora,
       status: 'Valores insertados!'
     })
   })
