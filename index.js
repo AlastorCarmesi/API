@@ -62,7 +62,7 @@ app.get('/Ver', (req, res) => {
     });
 
     res.send({
-      Numero_de_Control : req.body.NumCtrl,
+      Numero_de_Control : req.body.Numero_de_Control,
       Nombre : req.body.Nombre,
       Carrera : req.body.Carrera,
       Semestre : req.body.Semestre,
