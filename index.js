@@ -53,6 +53,8 @@ app.get('/Ver', (req, res) => {
 
       Numero_de_Control : req.body.Numero_de_Control,
       Nombre : req.body.Nombre,
+      Apellido_Paterno : req.body.apellido_Paterno,
+      Apellido_Materno : req.body.apellido_materno,
       Carrera : req.body.Carrera,
       Semestre : req.body.Semestre,
       Motivo :  req.body.Motivo,
@@ -64,6 +66,8 @@ app.get('/Ver', (req, res) => {
     res.send({
       Numero_de_Control : req.body.Numero_de_Control,
       Nombre : req.body.Nombre,
+      Apellido_Paterno : req.body.apellido_Paterno,
+      Apellido_Materno : req.body.apellido_materno,
       Carrera : req.body.Carrera,
       Semestre : req.body.Semestre,
       Motivo :  req.body.Motivo,
